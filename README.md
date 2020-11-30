@@ -5,14 +5,14 @@ python課題の提出期限が過ぎたら消します。
 
 # コンパイルまで
 ```
-$>git clone https://github.com/Rashoru-Infinity/tmp.git
-$>cd tmp
-$>make
+$git clone https://github.com/Rashoru-Infinity/tmp.git
+$cd tmp
+$make
 ```
 
 # 使い方
 ```
-$>./diff_bin file1 file2
+$./diff_bin file1 file2
 ```
 
 # 結果
