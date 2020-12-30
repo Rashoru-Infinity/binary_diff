@@ -68,12 +68,16 @@ int binary_diff(char *file1, char *file2, size_t buf_size)
 		max =  f1_rd_size <= f2_rd_size ? f1_rd_size : f2_rd_size;
 		while (max > index)
 		{
-			printf("%zu : %u %u\n", total + index, (unsigned char)buf1[index], (unsigned char)buf2[index]);
+			if (buf1[index] != buf2[index])
+				printf("diff: %s %s ", file1, file2);
+			printf("%zu byte : %u %u\n", total + index, (unsigned char)buf1[index], (unsigned char)buf2[index]);
 			++index;
 		}
 		total += max;
-		if (diff != 0)
+		if (diff == 0)
 			diff = memcmp(buf1, buf2, f1_rd_size <= f2_rd_size ? f1_rd_size : f2_rd_size);
+		if (diff == 0 && f1_rd_size != f2_rd_size)
+			diff = f1_rd_size > f2_rd_size ? buf1[f2_rd_size] : buf2[f1_rd_size];
 	}
 	free(buf1);
 	free(buf2);
