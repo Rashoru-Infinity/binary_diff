@@ -61,7 +61,7 @@ int binary_diff(char *file1, char *file2, size_t buf_size)
 			fclose(f2);
 			error_handler();
 		}
-		diff = strcmp(buf1, buf2);
+		diff = memcmp(buf1, buf2, f1_rd_size <= f2_rd_size ? f1_rd_size : f2_rd_size);
 		if (diff != 0)
 		{
 			free(buf1);
