@@ -19,6 +19,6 @@ $./diff_bin file1 file2
 ```
 
 # result
-WA・・・Does not same.
+WA・・・Do not same.
 
 AC・・・Same.
